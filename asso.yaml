@@ -1,0 +1,8 @@
+charge: false
+code: '10000'
+msg: 查询成功
+requestId: cc6ff2ffeebd4982a6a4aeea50c2d1a5
+result:
+  msg: 接口已停用
+  result: ''
+  status: '108'

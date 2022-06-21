@@ -1,6 +1,8 @@
 import requests
 import pytest
 
+from yaml_util import YamlUtil
+
 
 @pytest.fixture(scope="function")
 def conn_sql():
@@ -22,7 +24,7 @@ class TestFirst():
         res = requests.get(url, params)
         # res = requests.post(url, json=params)
         print(res.status_code)
-        print(res.json())
+        YamlUtil().write_asso_yaml(data=res.json())
 
     def test_baidu(self):
         url = "https://www.baidu.com"
@@ -33,6 +35,8 @@ class TestFirst():
         url = "https://www.qq.com"
         res = requests.get(url)
         print(res.status_code)
+        value=YamlUtil().read_asso_yaml("charge")
+        print("charge of value:",value)
 
 
 if __name__ == '__main__':
