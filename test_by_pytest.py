@@ -30,24 +30,26 @@ class TestFirst():
                   }
         res = requests.get(url, params)
         # res = requests.post(url, json=params)
-        print(res.status_code)
+        assert res.status_code==200
         YamlUtil().write_asso_yaml(data=res.json())
 
     def test_baidu(self):
         url = "https://www.baidu.com"
         res = requests.get(url)
         YamlUtil().write_asso_yaml({"baidu":res.status_code})
-        print(res.status_code)
+        assert res.ok==True
+
 
 
 
     def test_qq(self, conn_sql):
-        url = "https://www.qq.com"
+        url = "http://www.csdn.com"
         res = requests.get(url)
-        print(res.status_code)
         value=YamlUtil().read_asso_yaml()
-        print("charge of value:",value)
+        assert value["msg"]=="查询成功"
+
 
 
 if __name__ == '__main__':
     pytest.main([])
+    os.system("allure generate temp -o reports")
