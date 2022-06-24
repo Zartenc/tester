@@ -4,6 +4,7 @@ import os
 import requests
 import pytest
 
+
 from yaml_util import YamlUtil
 
 
@@ -52,4 +53,4 @@ class TestFirst():
 
 if __name__ == '__main__':
     pytest.main([])
-    os.system("allure generate temp -o reports")
+    os.system("allure generate ./temp -o ./reports/ --clean")
