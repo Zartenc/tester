@@ -14,3 +14,8 @@ class YamlUtil:
     def clear_asso_yaml(self):
         with open(os.getcwd()+"/asso.yaml",mode="w",encoding="utf-8") as f:
             f.truncate()
+
+    def read_case_yaml(self,yaml_name):
+        with open(os.getcwd()+"/"+yaml_name,mode="r",encoding="utf-8") as f:
+            value =yaml.load(stream=f,Loader=yaml.FullLoader)
+            return value

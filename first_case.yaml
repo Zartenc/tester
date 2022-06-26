@@ -1,0 +1,7 @@
+-
+  name: test for baidu
+  request:
+    method: get
+    url: https://www.baidu.com
+    data: None
+  validate: None
