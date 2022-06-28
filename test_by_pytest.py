@@ -3,6 +3,7 @@ import os
 
 import requests
 import pytest
+from utils.request_utils import Request_Util
 
 
 from yaml_util import YamlUtil
@@ -29,8 +30,9 @@ class TestFirst():
         params = {"keyword": "zarten",
                   "appkey": appkey
                   }
-        res = requests.get(url, params)
+        # res = requests.get(url, params)
         # res = requests.post(url, json=params)
+        res =Request_Util().request("Get",url,params)
         assert res.status_code==200
         YamlUtil().write_asso_yaml(data=res.json())
 
